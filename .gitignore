@@ -1,0 +1,13 @@
+# user-specific stuff
+.idea/
+*.iml
+*.bak
+*.log
+
+# build output
+target
+
+/.settings/
+/.settings/*
+/.classpath
+/.project
