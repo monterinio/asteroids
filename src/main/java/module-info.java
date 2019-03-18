@@ -6,5 +6,5 @@ module asteroids {
     requires javafx.controls;
     requires afterburner.fx;
     opens org.monterinio.games.asteroids to afterburner.fx;
-    opens org.monterinio.games.asteroids.internals to afterburner.fx, javafx.fxml;
+    opens org.monterinio.games.asteroids.internals;
 }

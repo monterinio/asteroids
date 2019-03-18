@@ -6,4 +6,10 @@ public class MyService {
         System.out.println("Doing stuff...");
     }
 
+    public int calculateSurface(int a, int b) {
+        return a * b;
+    }
+
+
+
 }
