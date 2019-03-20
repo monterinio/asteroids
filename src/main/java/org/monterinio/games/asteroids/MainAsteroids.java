@@ -4,27 +4,19 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.airhacks.afterburner.injection.Injector;
-import org.monterinio.games.asteroids.internals.DashboardView;
 
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class MainAsteroids extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
         Map<Object, Object> customProperties = new HashMap<>();
-        customProperties.put("string", "string");
         Injector.setConfigurationSource(customProperties::get);
-
-//        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
 
         DashboardView appView = new DashboardView();
         Scene scene = new Scene(appView.getView());
-
-//        Scene scene = new Scene(root);
-//        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
@@ -46,7 +38,6 @@ public class MainAsteroids extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        //
     }
 
 }

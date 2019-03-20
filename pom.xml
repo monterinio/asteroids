@@ -55,7 +55,7 @@
                     <include>dashboard.fxml</include>
                     <include>dashboard.css</include>
                 </includes>
-                <targetPath>org/monterinio/games/asteroids/internals</targetPath>
+                <targetPath>org/monterinio/games/asteroids</targetPath>
             </resource>
         </resources>
         <plugins>

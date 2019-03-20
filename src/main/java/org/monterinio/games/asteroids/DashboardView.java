@@ -1,4 +1,4 @@
-package org.monterinio.games.asteroids.internals;
+package org.monterinio.games.asteroids;
 
 import com.airhacks.afterburner.views.FXMLView;
 
