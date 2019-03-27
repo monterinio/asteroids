@@ -1,7 +1,7 @@
-package org.monterinio.games.asteroids.internals.control
+package org.monterinio.games.asteroids.mechanics.control
 
-import javafx.geometry.Point2D
-import org.monterinio.games.asteroids.internals.entity.GameBoard
+
+import org.monterinio.games.asteroids.mechanics.entity.GameBoard
 import spock.lang.Specification
 
 

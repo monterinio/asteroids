@@ -1,6 +1,6 @@
-package org.monterinio.games.asteroids.internals
+package org.monterinio.games.asteroids.mechanics
 
-import org.monterinio.games.asteroids.internals.control.GameServiceTest
+import org.monterinio.games.asteroids.mechanics.control.GameServiceTest
 import spock.lang.Specification
 
 

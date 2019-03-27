@@ -1,14 +1,15 @@
-package org.monterinio.games.asteroids.internals.control;
+package org.monterinio.games.asteroids.mechanics.control;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import org.monterinio.games.asteroids.internals.entity.GameObject;
+import org.monterinio.games.asteroids.mechanics.entity.GameObject;
+import org.monterinio.games.asteroids.mechanics.entity.Player;
 
 public class ObjectFactory {
 
-    public static GameObject createPlayer() {
-        return new GameObject(new Rectangle(40, 20, Color.AQUA));
+    public static Player createPlayer() {
+        return new Player(new Rectangle(40, 20, Color.AQUA), "dummy");
     }
 
     public static GameObject createEnemy() {

@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.airhacks.afterburner.injection.Injector;
+import org.monterinio.games.asteroids.commands.BasicMovementHandler;
+import org.monterinio.games.asteroids.commands.BasicStopHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +13,14 @@ import java.util.Map;
 public class MainAsteroids extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         Map<Object, Object> customProperties = new HashMap<>();
         Injector.setConfigurationSource(customProperties::get);
 
         DashboardView appView = new DashboardView();
         Scene scene = new Scene(appView.getView());
+        scene.setOnKeyPressed(new BasicMovementHandler());
+        scene.setOnKeyReleased(new BasicStopHandler());
 
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
