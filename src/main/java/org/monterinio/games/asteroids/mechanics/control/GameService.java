@@ -30,5 +30,6 @@ public class GameService {
 
     public void updatePlayerPosition() {
         this.gameBoard.players.forEach(player -> player.updatePosition());
+        this.gameBoard.players.forEach(player -> player.updateAngle());
     }
 }

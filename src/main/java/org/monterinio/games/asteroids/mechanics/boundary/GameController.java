@@ -13,7 +13,6 @@ public class GameController extends AnimationTimer {
     @Inject
     private GameService gameService;
 
-
     @FXML
     private Pane pane;
 

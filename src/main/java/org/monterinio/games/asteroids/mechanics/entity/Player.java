@@ -1,65 +1,45 @@
 package org.monterinio.games.asteroids.mechanics.entity;
 
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import org.monterinio.games.asteroids.commands.movement.AbstractMovementSignals;
+import org.monterinio.games.asteroids.commands.movement.BasicMovementSignals;
+import org.monterinio.games.asteroids.commands.rotation.AbstractRotationSignals;
+import org.monterinio.games.asteroids.commands.rotation.BasicRotationSignals;
 
 public class Player extends GameObject {
 
     private String name;
-
-    public final BooleanProperty left = new SimpleBooleanProperty(false);
-    public final BooleanProperty right = new SimpleBooleanProperty(false);
-    public final BooleanProperty up = new SimpleBooleanProperty(false);
-    public final BooleanProperty down = new SimpleBooleanProperty(false);
-    final BooleanBinding upleft = up.and(left);
-    final BooleanBinding upright = up.and(right);
-    final BooleanBinding downleft = down.and(left);
-    final BooleanBinding downright = down.and(right);
+    private double angle;
+    private AbstractMovementSignals movementSignals;
+    private AbstractRotationSignals rotationSignals;
 
     public Player(Node view, String name) {
         super(view);
         this.name = name;
+        this.movementSignals = new BasicMovementSignals();
+        this.rotationSignals = new BasicRotationSignals();
     }
 
     public String getName() {
         return this.name;
     }
 
+    public AbstractMovementSignals getMovementSignals() {
+        return movementSignals;
+    }
+
+    public AbstractRotationSignals getRotationSignals() { return rotationSignals; }
 
     public void calculateVelocity() {
-        if (left.get()) {
-            this.velocity = new Point2D(-1, 0);
-        }
+        this.velocity = movementSignals.calculateVelocity();
+    }
 
-        if (right.get()) {
-            this.velocity = new Point2D(1, 0);
-        }
+    public void calculateAngle() {
+        this.angle = rotationSignals.calculateAngle();
+    }
 
-        if (up.get()) {
-            this.velocity = new Point2D(0, -1);
-        }
-
-        if (down.get()) {
-            this.velocity = new Point2D(0, 1);
-        }
-
-        if (upleft.get()) {
-            this.velocity = new Point2D(-1, -1);
-        }
-
-        if (upright.get()) {
-            this.velocity = new Point2D(1, -1);
-        }
-
-        if (downleft.get()) {
-            this.velocity = new Point2D(-1, 1);
-        }
-
-        if (downright.get()) {
-            this.velocity = new Point2D(1, 1);
-        }
+    // TODO: I don't like this method being in Player
+    public void updateAngle() {
+        this.getView().setRotate(this.angle);
     }
 }

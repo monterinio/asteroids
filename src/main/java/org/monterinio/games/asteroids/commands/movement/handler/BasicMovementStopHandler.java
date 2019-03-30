@@ -1,4 +1,4 @@
-package org.monterinio.games.asteroids.commands;
+package org.monterinio.games.asteroids.commands.movement.handler;
 
 import com.airhacks.afterburner.injection.Injector;
 import javafx.event.EventHandler;
@@ -6,34 +6,45 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.monterinio.games.asteroids.mechanics.entity.GameBoard;
 
-
-public class BasicMovementHandler implements EventHandler<KeyEvent> {
+public class BasicMovementStopHandler implements EventHandler<KeyEvent> {
 
     private GameBoard gameBoard = Injector.instantiateModelOrService(GameBoard.class);
 
     @Override
     public void handle(KeyEvent e) {
 
-        var player = gameBoard //
+        var player = this.gameBoard //
                 .getPlayerByName("dummy") //
                 .orElseThrow(() -> new IllegalStateException("Player not found"));
+        var signals = player.getMovementSignals();
 
         if (KeyCode.A == e.getCode()) {
-            player.left.setValue(true);
+            signals.offA();
         }
 
         if (KeyCode.D == e.getCode()) {
-            player.right.setValue(true);
+            signals.offD();
         }
 
         if (KeyCode.W == e.getCode()) {
-            player.up.setValue(true);
+            signals.offW();
         }
 
         if (KeyCode.S == e.getCode()) {
-            player.down.setValue(true);
+            signals.offS();
         }
 
+//        if (KeyCode.E == e.getCode()) {
+//            player.resetAngle();
+//            player.signals.clockwise.set(false);
+//        }
+//
+//        if (KeyCode.Q == e.getCode()) {
+//            player.resetAngle();
+//            player.signals.antiClockwise.set(false);
+//        }
+
         player.calculateVelocity();
+        player.calculateAngle();
     }
 }
