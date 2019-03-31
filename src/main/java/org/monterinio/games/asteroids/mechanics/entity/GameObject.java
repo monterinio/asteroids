@@ -13,6 +13,7 @@ public class GameObject {
     public GameObject(Node view) {
         this.view = view;
         this.velocity = new Point2D(0, 0);
+        this.alive = true;
     }
 
     public Node getView() {

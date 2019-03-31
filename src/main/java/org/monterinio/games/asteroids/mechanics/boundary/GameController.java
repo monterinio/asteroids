@@ -24,9 +24,12 @@ public class GameController extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-        gameService.checkForEvents();
+        var list = gameService.checkForCollision();
+        pane.getChildren().removeAll(list);
         displayEnemy();
-        gameService.updatePlayerPosition();
+        gameService.updatePlayersPosition();
+        displayBullets();
+        gameService.updateBulletsPosition();
     }
 
     void displayEnemy() {
@@ -44,4 +47,18 @@ public class GameController extends AnimationTimer {
         pane.getChildren().add(player.getView());
     }
 
+    void displayBullets() {
+        var players = gameService.getBoard().players;
+        var playersIter = players.listIterator();
+        while (playersIter.hasNext()) {
+            var pl = playersIter.next();
+            var bulletsIter = pl.getBullets().listIterator();
+            while (bulletsIter.hasNext()) {
+                var bul = bulletsIter.next();
+                gameService.getBoard().registerBullet(bul, pl.getView().getTranslateX(), pl.getView().getTranslateY());
+                this.pane.getChildren().add(bul.getView());
+                bulletsIter.remove();
+            }
+        }
+    }
 }

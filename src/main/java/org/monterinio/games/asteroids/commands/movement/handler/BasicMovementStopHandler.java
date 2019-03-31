@@ -34,17 +34,6 @@ public class BasicMovementStopHandler implements EventHandler<KeyEvent> {
             signals.offS();
         }
 
-//        if (KeyCode.E == e.getCode()) {
-//            player.resetAngle();
-//            player.signals.clockwise.set(false);
-//        }
-//
-//        if (KeyCode.Q == e.getCode()) {
-//            player.resetAngle();
-//            player.signals.antiClockwise.set(false);
-//        }
-
         player.calculateVelocity();
-        player.calculateAngle();
     }
 }

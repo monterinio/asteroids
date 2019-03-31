@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import com.airhacks.afterburner.injection.Injector;
+import org.monterinio.games.asteroids.commands.action.handler.BasicActionHandler;
+import org.monterinio.games.asteroids.commands.action.handler.BasicActionStopHandler;
 import org.monterinio.games.asteroids.commands.movement.handler.BasicMovementHandler;
 import org.monterinio.games.asteroids.commands.rotation.handler.BasicRotationHandler;
 import org.monterinio.games.asteroids.commands.movement.handler.BasicMovementStopHandler;
@@ -28,6 +30,9 @@ public class MainAsteroids extends Application {
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new BasicRotationHandler());
         scene.addEventFilter(KeyEvent.KEY_RELEASED, new BasicRotationStopHandler());
+
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, new BasicActionHandler());
+        scene.addEventFilter(KeyEvent.KEY_RELEASED, new BasicActionStopHandler());
 
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);

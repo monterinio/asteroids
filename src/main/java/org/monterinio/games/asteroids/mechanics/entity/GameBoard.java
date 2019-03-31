@@ -35,4 +35,9 @@ public class GameBoard {
     }
 
 
+    public void registerBullet(GameObject bullet, double x, double y) {
+        bullet.getView().setTranslateX(x);
+        bullet.getView().setTranslateY(y);
+        bullets.add(bullet);
+    }
 }
