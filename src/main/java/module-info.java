@@ -7,7 +7,7 @@ module asteroids {
     requires afterburner.fx;
     requires java.annotation;
     opens org.monterinio.games.asteroids to afterburner.fx;
-    opens org.monterinio.games.asteroids.mechanics.control;
-    opens org.monterinio.games.asteroids.mechanics.entity;
-    opens org.monterinio.games.asteroids.mechanics.boundary;
+    opens org.monterinio.games.asteroids.board to afterburner.fx, javafx.fxml;
+    opens org.monterinio.games.asteroids.board.controller to afterburner.fx;
+
 }

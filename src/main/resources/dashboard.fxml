@@ -7,5 +7,5 @@
             xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/8.0.171"
             fx:id="pane"
-            fx:controller="org.monterinio.games.asteroids.mechanics.boundary.GameController">
+            fx:controller="org.monterinio.games.asteroids.board.GameHandler">
 </BorderPane>

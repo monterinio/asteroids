@@ -1,16 +1,16 @@
 package org.monterinio.games.asteroids;
 
+import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import com.airhacks.afterburner.injection.Injector;
-import org.monterinio.games.asteroids.commands.action.handler.BasicActionHandler;
-import org.monterinio.games.asteroids.commands.action.handler.BasicActionStopHandler;
-import org.monterinio.games.asteroids.commands.movement.handler.BasicMovementHandler;
-import org.monterinio.games.asteroids.commands.rotation.handler.BasicRotationHandler;
-import org.monterinio.games.asteroids.commands.movement.handler.BasicMovementStopHandler;
-import org.monterinio.games.asteroids.commands.rotation.handler.BasicRotationStopHandler;
+import org.monterinio.games.asteroids.player.controller.action.BasicActionHandler;
+import org.monterinio.games.asteroids.player.controller.action.BasicActionStopHandler;
+import org.monterinio.games.asteroids.player.controller.movement.BasicMovementHandler;
+import org.monterinio.games.asteroids.player.controller.movement.BasicMovementStopHandler;
+import org.monterinio.games.asteroids.player.controller.rotation.BasicRotationHandler;
+import org.monterinio.games.asteroids.player.controller.rotation.BasicRotationStopHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public class MainAsteroids extends Application {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new BasicActionHandler());
         scene.addEventFilter(KeyEvent.KEY_RELEASED, new BasicActionStopHandler());
 
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("Asteroids");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
