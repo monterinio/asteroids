@@ -12,16 +12,8 @@ public abstract class GameObject {
         this.alive = true;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
-
     public boolean isDead() {
         return !alive;
-    }
-
-    public void setAlive() {
-        this.alive = true;
     }
 
     public void setDead() {

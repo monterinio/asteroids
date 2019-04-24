@@ -9,5 +9,9 @@ module asteroids {
     opens org.monterinio.games.asteroids to afterburner.fx;
     opens org.monterinio.games.asteroids.board to afterburner.fx, javafx.fxml;
     opens org.monterinio.games.asteroids.board.controller to afterburner.fx;
+    // needs to be opened for testing
+    opens org.monterinio.games.asteroids.player.model.rotation;
+    opens org.monterinio.games.asteroids.player.model.movement;
+    opens org.monterinio.games.asteroids.player.model.action;
 
 }

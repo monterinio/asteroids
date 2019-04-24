@@ -25,5 +25,5 @@ public abstract class AbstractActionSignals {
         this.reverse.set(false);
     }
 
-    public abstract double shoot(Player player);
+    public abstract double shoot(double currentAngle);
 }

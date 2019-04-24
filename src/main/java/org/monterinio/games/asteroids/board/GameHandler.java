@@ -4,10 +4,6 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
 import org.monterinio.games.asteroids.board.controller.BoardController;
-import org.monterinio.games.asteroids.board.model.ObjectFactory;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import javax.inject.Inject;
 
