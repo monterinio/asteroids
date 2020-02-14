@@ -52,7 +52,7 @@ public class BasicMovementSignals extends AbstractMovementSignals {
             vel = DOWN.add(RIGHT).normalize();
         }
 
-        return vel != null ? vel : ZERO;
+        return vel != null ? vel.multiply(0.2) : ZERO;
     }
 }
 

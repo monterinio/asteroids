@@ -57,7 +57,7 @@ public class Player extends GameObject {
     public void shoot() {
         double angle = actionSignals.shoot(this.angle);
         double rad = Math.toRadians(angle);
-        Point2D vector = new Point2D(Math.sin(rad) * 1, Math.cos(rad) * 1).multiply(5);
+        Point2D vector = new Point2D(Math.sin(rad) * 1, Math.cos(rad) * 1).multiply(1);
         var bullet = new Bullet();
         bullet.velocity = vector;
         this.bullets.add(bullet);

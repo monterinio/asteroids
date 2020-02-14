@@ -26,7 +26,7 @@ public class GameHandler extends AnimationTimer {
     public void handle(long now) {
         boardController.checkForCollision();
 
-        if (Math.random() < 0.01) {
+        if (Math.random() < 0.001) {
             boardController.registerEnemy();
         }
 
